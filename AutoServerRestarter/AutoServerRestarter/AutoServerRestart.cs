@@ -18,20 +18,16 @@ namespace AutoServerRestarter
     {
         protected static ILog _log = LogManager.GetLogger("AutoServerRestart");
 
-        private Timer t;
-        //private MiNetServer _server;
+        //private Timer t;
+        private MiNetServer _server;
         protected override void OnEnable()
         {
             _log.Warn("Loaded");
             Task task = Task.Factory.StartNew(() =>
             {
                 _server.StopServer();
+               
             });
-               /* Timer timer = new Timer();
-            timer.Elapsed += new ElapsedEventHandler(MyClock);
-            timer.Interval = 2000; // コンストラクタでも指定可
-            timer.AutoReset = true; // デフォルト
-            timer.Enabled = true; // timer.Start()と同じ*/
 
         }
 
